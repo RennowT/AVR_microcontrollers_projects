@@ -27,10 +27,12 @@ int main(void) {
     // Toggle button pattern when the button is pressed
     if (buttonPressed(BUTTON_PIN)) {
       buttonPattern++;
+      if (buttonPattern > 3)
+        buttonPattern = 0;
       // Wait until the button is released
       while (buttonPressed(BUTTON_PIN))
         _delay_ms(1);
-    } 
+    }
 
     // Use a switch statement to handle different button patterns
     switch (buttonPattern)
@@ -50,8 +52,6 @@ int main(void) {
     default:
       break;
     }
-
-    _delay_ms(10);
   }
 
   return 0;
