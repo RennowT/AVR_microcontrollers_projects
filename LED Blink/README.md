@@ -6,6 +6,6 @@ This is a simple project to control the blinking of an LED on an AVR microcontro
 
 - AVR Microcontroller (e.g., ATmega328p)
 - LED
-- Resistor (if necessary)
+- Resistors
 - Button
 - Breadboard and wires
