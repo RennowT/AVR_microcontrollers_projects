@@ -10,4 +10,4 @@ This is a simple project to control the blinking of an LED on an AVR microcontro
 - Button
 - Breadboard and wires
 
-![Breadboard Setup](949cd151-00a5-4159-aee6-e92d15e2f086.jpg){width=10px}
+![Breadboard Setup](ledBlink.jpg)
