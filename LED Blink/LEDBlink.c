@@ -1,8 +1,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define LED_PIN (1 << PD2)    // LED pin (pin 4 on atmega328p)
-#define BUTTON_PIN (1 << PB1) // Button pin (pin 9 on atmega328p)
+#define LED_PIN PD2 // LED pin (pin 4 on atmega328p)
+#define BUTTON_PIN PB1 // Button pin (pin 9 on atmega328p)
+
+#define HIGH_TIME 500
+#define LOW_TIME 500
 
 // Function to check if the pull-up button is pressed
 _Bool buttonPressed(uint8_t button) {
@@ -35,7 +38,7 @@ int main(void) {
 
     // If the button pattern is active, use the flashing pattern; otherwise, turn off the LED
     if (buttonPattern) {
-      ledFlashingPattern(500, 500); // Pattern when the button is pressed
+      ledFlashingPattern(HIGH_TIME, LOW_TIME); // Pattern when the button is pressed
     } else {
       PORTD &= ~LED_PIN; // Turn off the LED
     }
