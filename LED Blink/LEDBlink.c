@@ -6,14 +6,14 @@
 
 // Function to check if the pull-up button is pressed
 _Bool buttonPressed(uint8_t button) {
-  return !(PINB & button); // Returns 1 if PINB & button is 0
+  return !(PINB & button); // Returns 1 if PINB & button is 0 (button is pressed)
 }
 
 // Function to control LED flashing pattern
 void ledFlashingPattern(uint16_t highTime, uint16_t lowTime) {
-  PORTD |= LED_PIN;
+  PORTD |= LED_PIN;      // Turn on the LED
   _delay_ms(highTime);
-  PORTD &= ~LED_PIN;
+  PORTD &= ~LED_PIN;     // Turn off the LED
   _delay_ms(lowTime);
 }
 
@@ -27,15 +27,17 @@ int main(void) {
     // Toggle button pattern when the button is pressed
     if (buttonPressed(BUTTON_PIN)) {
       buttonPattern = !buttonPattern;
+      
+      // Wait until the button is released
       while (buttonPressed(BUTTON_PIN))
-        _delay_ms(1);  // Wait until the button is released
+        _delay_ms(1);
     } 
 
     // If the button pattern is active, use the flashing pattern; otherwise, turn off the LED
     if (buttonPattern) {
       ledFlashingPattern(500, 500); // Pattern when the button is pressed
     } else {
-      PORTD &= ~LED_PIN;
+      PORTD &= ~LED_PIN; // Turn off the LED
     }
 
     _delay_ms(10);
