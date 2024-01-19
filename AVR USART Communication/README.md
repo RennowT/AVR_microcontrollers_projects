@@ -44,3 +44,5 @@ The project consists of two main components:
 
 - Communication is established using USART (Universal Synchronous and Asynchronous Receiver-Transmitter).
 - Baud rate is configurable in the code.
+
+![Breadboard Setup](USARTCuminication.jpg)
